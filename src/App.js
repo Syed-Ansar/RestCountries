@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Countries from './components/Countries';
+import Navbar from './components/Navbar';
+import { useState } from 'react';
 
 function App() {
+  const [region, setRegion] = useState('Asia');
+  const [searchTerm, setSearchTerm] = useState('');
+  // console.log(searchTerm);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar
+        region={region}
+        setRegion={setRegion}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
+      <Countries region={region} searchTearm={searchTerm} />
     </div>
   );
 }
