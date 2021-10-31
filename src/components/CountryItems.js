@@ -8,9 +8,15 @@ const CountryItems = (props) => {
   return (
     <div
       onClick={handleclick}
-      className='w-[300px]   shadow-normal rounded-md mx-auto my-10 cursor-pointer '
+      className='w-[300px] h-[350px] shadow-normal rounded-md mx-auto my-10 cursor-pointer '
     >
-      <img src={flag} className=' rounded-t-md shadow-sm ' alt='' />
+      <h1 href='country'>
+        <img
+          src={flag}
+          className=' w-[300px] max-h-[200px] rounded-t-md shadow-sm '
+          alt=''
+        />
+      </h1>
       <div className='p-5 font-Nuto'>
         <p className=' font-medium mb-3 '>{countryName}</p>
         <p className='font-normal text-sm mb-[2.5px]'>

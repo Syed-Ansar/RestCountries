@@ -4,17 +4,18 @@ import { useState } from 'react';
 
 function App() {
   const [region, setRegion] = useState('Asia');
-  const [searchTerm, setSearchTerm] = useState('');
-  // console.log(searchTerm);
+  const [allCountries, setAllCountries] = useState([]);
+  const [term, setTerm] = useState('');
+
   return (
     <div>
-      <Navbar
+      <Navbar region={region} setRegion={setRegion} setTerm={setTerm} />
+      <Countries
         region={region}
-        setRegion={setRegion}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
+        allCountries={allCountries}
+        setAllCountries={setAllCountries}
+        term={term}
       />
-      <Countries region={region} searchTearm={searchTerm} />
     </div>
   );
 }

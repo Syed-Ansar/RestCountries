@@ -2,7 +2,7 @@ import { RiMoonLine } from 'react-icons/ri';
 import Header from './Header';
 
 const Navbar = (props) => {
-  const { region, setRegion, setSearchTerm } = props;
+  const { region, setRegion, setTerm } = props;
 
   return (
     <div>
@@ -17,11 +17,7 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
-      <Header
-        region={region}
-        setRegion={setRegion}
-        setSearchTerm={setSearchTerm}
-      />
+      <Header region={region} setRegion={setRegion} setTerm={setTerm} />
     </div>
   );
 };

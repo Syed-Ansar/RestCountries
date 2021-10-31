@@ -1,20 +1,22 @@
 import { HiSearch } from 'react-icons/hi';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const Header = (props) => {
   const [dropDown, setDropDown] = useState(true);
 
-  const { setRegion, searchTerm, setSearchTerm } = props;
+  const input = useRef();
+
+  const { setRegion, setTerm } = props;
   const handleRegion = (event) => {
     setRegion(event.target.value);
     setDropDown(!dropDown);
   };
 
-  const handleSearchTerm = (event) => {
-    // console.log(event.target.value);
-    setSearchTerm(event.target.value);
-  };
+  function handleSearchTerm(event) {
+    let current = input.current.value.toLowerCase();
+    setTerm(current);
+  }
 
   const handleDropdown = () => {
     setDropDown(!dropDown);
@@ -27,7 +29,7 @@ const Header = (props) => {
           <HiSearch className=' text-xl text-[#858585]  absolute left-14 sm:left-24 md:left-20 ' />
           <input
             type='text'
-            value={searchTerm}
+            ref={input}
             onChange={handleSearchTerm}
             placeholder='Search for a country...'
             className='w-screen md:w-80 lg:w-[32rem] h-14 pl-20 lg:pl-20 outline-none rounded-md placeholder-gray-300 text-[#858585] text-sm shadow-normal '
