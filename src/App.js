@@ -16,10 +16,10 @@ function App() {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    {
-      // Beginning of lone block
-      isEnable ? root.classList.add('dark') : root.classList.remove('dark');
-    } // End of lone block
+
+    // Beginning of lone block
+    isEnable ? root.classList.add('dark') : root.classList.remove('dark');
+    // End of lone block
   }, [isEnable]);
 
   return (

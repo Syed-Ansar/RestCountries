@@ -40,10 +40,10 @@ const Countries = (props) => {
       const res = await fetch(Url);
       const data = await res.json();
       setLoading(true);
-      {
-        // Beginning of lone block
-        region ? setCountry(data) : setCountry([]);
-      } // End of lone block
+
+      // Beginning of lone block
+      region ? setCountry(data) : setCountry([]);
+      // End of lone block
       setLoading(false);
     };
     RegionApidata();
