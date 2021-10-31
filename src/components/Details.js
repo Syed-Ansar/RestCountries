@@ -39,7 +39,7 @@ const Details = (props) => {
   }
 
   return (
-    <div className='md:h-[100vh] w-screen p-6 md:p-10 overflow-y-hidden dark:text-gray-50'>
+    <div className='min-w-[100%] md:h-[100vh] md:w-screen p-6 md:p-10 overflow-y-hidden dark:text-gray-50'>
       <div
         className='flex flex-row justify-center w-28 rounded-md  md:px-6 py-1.5 md:py-2 my-4 shadow-normal dark:bg-DarkBlue cursor-pointer'
         onClick={handleBack}
@@ -131,7 +131,7 @@ const Details = (props) => {
                 </div>
                 <div className='flex flex-col text-gray-800 dark:text-gray-50 font-cuslight mt-6'>
                   <div>Border Countries :</div>
-                  <div className='flex flex-row mt-4 font-light text-sm'>
+                  <div className='grid grid-cols-3 md:flex md:flex-row mt-4 font-light text-sm'>
                     {data?.borders?.length ? (
                       data.borders.map((border, index) => (
                         <span key={index} className={'border-item'}>
