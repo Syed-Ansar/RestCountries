@@ -32,12 +32,12 @@ const Header = (props) => {
             ref={input}
             onChange={handleSearchTerm}
             placeholder='Search for a country...'
-            className='w-screen md:w-80 lg:w-[32rem] h-14 pl-20 lg:pl-20 outline-none rounded-md placeholder-gray-300 text-[#858585] text-sm shadow-normal '
+            className='w-screen md:w-80 lg:w-[32rem] h-14 pl-20 lg:pl-20 outline-none rounded-md placeholder-gray-300 text-[#858585] text-sm shadow-normal dark:bg-DarkBlue dark:text-gray-300'
           />
         </div>
         <div className='flex flex-col '>
           <div
-            className='w-48 h-14 rounded-md shadow-normal p-5 flex flex-row items-center justify-between cursor-pointer mt-8 md:mt-0 font-Nuto font-normal text-gray-600'
+            className='w-48 h-14 rounded-md shadow-normal p-5 flex flex-row items-center justify-between cursor-pointer mt-8 md:mt-0 font-Nuto font-normal text-gray-600 dark:bg-DarkBlue dark:text-gray-300'
             onClick={handleDropdown}
           >
             Filter by Region
@@ -47,10 +47,10 @@ const Header = (props) => {
             className={
               dropDown
                 ? 'hidden'
-                : 'bg-white w-[193px] h-[150px] absolute top-[152px] md:top-16 rounded-md shadow-normal'
+                : 'bg-white dark:bg-DarkBlue  w-[193px] h-[150px] absolute top-[152px] md:top-16 rounded-md shadow-normal'
             }
           >
-            <div className='flex flex-col justify-evenly p-5 text-sm text-gray text-gray-600'>
+            <div className='flex flex-col justify-evenly p-5 text-sm text-gray text-gray-600 dark:text-gray-300'>
               <div onClick={handleRegion}>
                 <option
                   value='Africa'

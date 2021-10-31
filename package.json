@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -16,7 +17,7 @@
   },
   "scripts": {
     "start": "TAILWIND_MODE=watch craco start",
-    "build": "craco build",
+    "build": "postcss -i tailwind.css -o build.css --minify",
     "test": "craco test",
     "eject": "react-scripts eject"
   },

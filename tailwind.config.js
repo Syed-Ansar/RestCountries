@@ -1,14 +1,18 @@
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
         Nuto: ['Nunito Sans', 'sans - serif'],
       },
+      backgroundColor: {
+        DarkBlue: '#2b3945',
+        veryDark: '#202c37',
+      },
       fontWeight: {
-        light: 300,
+        cuslight: 500,
         normal: 600,
         medium: 800,
       },
