@@ -20,7 +20,7 @@ const Countries = (props) => {
 
   useEffect(() => {
     const Apidata = async () => {
-      const Url = `https://restcountries.com/v3.1/all`;
+      const Url = `https://restcountries.com/v3.1/all?fields=name,population,region,subregion,capital,tld,currencies,languages,borders,flags`;
       const res = await fetch(Url);
       const data = await res.json();
       setLoading(true);
@@ -36,9 +36,9 @@ const Countries = (props) => {
 
   useEffect(() => {
     const RegionApidata = async () => {
-      const Url = `https://restcountries.com/v3.1/region/${region}`;
-      const res = await fetch(Url);
-      const data = await res.json();
+      const Url = region && `https://restcountries.com/v3.1/region/${region}`;
+      const res = region && (await fetch(Url));
+      const data = region && (await res.json());
       setLoading(true);
 
       // Beginning of lone block

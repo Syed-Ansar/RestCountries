@@ -8,18 +8,23 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
   const [allCountries, setAllCountries] = useState([]);
   const [country, setCountry] = useState([]);
-  const [region, setRegion] = useState('Asia');
+  const [region, setRegion] = useState('');
   const [term, setTerm] = useState('');
-  const [isEnable, setIsEnable] = useState(false);
   const [loading, setLoading] = useState(true);
   const [route, setRoute] = useState('');
 
+  const getMode = () => {
+    return JSON.parse(localStorage.getItem('mode')) || false;
+  };
+
+  const [isEnable, setIsEnable] = useState(getMode());
+
   useEffect(() => {
     const root = window.document.documentElement;
-
     // Beginning of lone block
     isEnable ? root.classList.add('dark') : root.classList.remove('dark');
     // End of lone block
+    localStorage.setItem('mode', JSON.stringify(isEnable));
   }, [isEnable]);
 
   return (

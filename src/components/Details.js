@@ -54,9 +54,9 @@ const Details = (props) => {
           <div className='flex flex-col md:flex-row'>
             <div className='mb-10'>
               <img
-                className=''
+                className='shadow-normal'
                 src={data?.flags?.png ? data.flags.png : 'Null'}
-                alt={data?.name?.common ? data.name.common : 'Flag'}
+                alt={data?.name?.common ? data.name.common : route}
               />
             </div>
             <div className='flex flex-col md:ml-16 lg:ml-24 xl:ml-40'>
@@ -131,11 +131,11 @@ const Details = (props) => {
                 </div>
                 <div className='flex flex-col text-gray-800 dark:text-gray-50 font-cuslight mt-6'>
                   <div>Border Countries :</div>
-                  <div className='grid grid-cols-3 md:flex md:flex-row mt-4 font-light text-sm'>
+                  <div className='grid grid-cols-3 md:flex md:flex-row md:flex-wrap mt-4 font-light text-sm'>
                     {data?.borders?.length ? (
                       data.borders.map((border, index) => (
                         <span key={index} className={'border-item'}>
-                          <h1 className='mr-4 w-24 text-center p-1 dark:bg-DarkBlue  rounded-sm shadow-normal'>
+                          <h1 className='mr-4 mb-2 md:mr-4 w-24 text-center p-1 dark:bg-DarkBlue  rounded-sm shadow-normal'>
                             {border}
                           </h1>
                         </span>
