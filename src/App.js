@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Details from './components/Details';
 import { useEffect, useState } from 'react';
 import Notfound404 from './components/NotFound404';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
