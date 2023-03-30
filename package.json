@@ -2,6 +2,10 @@
   "name": "restcountriesapp",
   "version": "0.1.0",
   "private": true,
+  "author": "Syed Ansar",
+  "description": "Rest-Countries app",
+  "homepage": "./",
+  "main": "main.js",
   "dependencies": {
     "@craco/craco": "^6.3.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -19,7 +23,32 @@
     "start": "TAILWIND_MODE=watch craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron:start": "concurrently -k \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electronmon .\"",
+    "electron:package:mac": "yarn build && electron-builder",
+    "electron:package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js"
+  },
+  "build": {
+    "appId": "com.countries.rest",
+    "productName": "Rest Countries App",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "mac": {
+      "appId": "com.countries.rest",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "deb"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -29,19 +58,21 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "last 1 electron version"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 electron version"
     ]
   },
   "devDependencies": {
     "autoprefixer": "^9",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "electron": "^23.1.1",
+    "electron-builder": "^23.6.0",
+    "electronmon": "^2.0.2",
     "postcss": "^7",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "wait-on": "^7.0.1"
   }
 }
